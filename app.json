@@ -1,0 +1,16 @@
+{
+    "name": "sh-bot",
+    "description": "Personal TG Upload bot",
+    "keywords": ["shell", "telegram", "docker", "bot"],
+    "repository": "https://github.com/Nirzak/shbot.git",
+    "stack": "container",
+    "env": {
+      "BOT_TOKEN": {
+        "description": "This is bot auth token, necessary to connect bot to Telegram device."
+      },
+      "OWN_ID": {
+        "description": "The chat id which will control the bot. Could be a group or a individual"
+      }
+    }
+  }
+  
