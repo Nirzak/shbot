@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     sudo \
     wget \
+    ffmpeg \
     git \
     make \
     busybox \
@@ -23,7 +24,7 @@ RUN apt-get update && apt-get install -y \
     php-json \
     npm \
     python3-pip \
- && mkdir -p /home/stuff && mkdir -p /home/.config
+ && mkdir -p /home/.config
  
 RUN python3 -m pip install --upgrade pip
 
@@ -36,7 +37,6 @@ WORKDIR /home
 COPY startbot.sh /home
 COPY /Scripts /home
 COPY config.sh /home
-COPY /stuff /home/stuff
 COPY /config /home/.config
 
 RUN chmod -R +x /home/*
@@ -46,14 +46,14 @@ RUN sh /home/config.sh \
  && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install the bot:
-RUN git clone https://github.com/botgram/shell-bot.git \
- && cd shell-bot \
+RUN git clone https://github.com/Nirzak/sh-bot-run.git \
+ && cd sh-bot-run \
  && npm install
- 
+
+RUN chmod -R +rwx /home/sh-bot-run
+
 RUN useradd -m nirzak && echo "nirzak:nirzak" | chpasswd && adduser nirzak sudo
 USER nirzak
-
-RUN echo "Uploaded files:" && ls /home/stuff/
 
 # Run bot script:
 CMD bash /home/startbot.sh

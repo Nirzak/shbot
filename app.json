@@ -1,7 +1,7 @@
 {
     "name": "sh-bot",
     "description": "Personal TG Upload bot",
-    "keywords": ["shell", "telegram", "docker", "bot"],
+    "keywords": ["telegram", "docker", "bot"],
     "repository": "https://github.com/Nirzak/shbot.git",
     "stack": "container",
     "env": {

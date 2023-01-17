@@ -7,7 +7,7 @@
 ## restart the bot by turning the worker off and back on
 
 echo "Creating config.json..."
-cd /home/shell-bot
+cd /home/sh-bot-run
 cat > config.json << EOF
 {
     "authToken": "$BOT_TOKEN",
